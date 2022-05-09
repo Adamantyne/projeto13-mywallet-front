@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { getContext } from "../../context";
@@ -14,15 +14,19 @@ export default function LoginScreen() {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    localStorage.setItem("storageData", JSON.stringify({}));
+  }, []);
+
   async function submitData(event) {
     event.preventDefault();
     try {
       const result = await axios.post(`${url}signIn`, userData);
-      console.log(result.data);
       const { token } = result.data;
       const { email, name } = result.data.user;
       setGlobalData({ ...globalData, token, email, name });
-      navigate("/");
+      navigate("/home");
     } catch (e) {
       alert(e.response.data);
     }
@@ -58,6 +62,7 @@ const LoginContainer = styled.div`
     width: 100%;
     height: 58px;
     border: none;
+    border-radius: 5px;
     background: #ffffff;
     border-radius: 5px;
     font-size: 20px;

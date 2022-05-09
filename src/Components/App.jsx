@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import RegistrationScreen from "./RegistrationScreen/index.jsx";
 import LoginScreen from "./LoginScreen/index.jsx";
+import HomeScreen from "./HomeScreen/index.jsx";
+import Transaction from "./Transactions/index.jsx";
 import { Provider } from "../context";
 
 export default function App() {
@@ -14,6 +16,8 @@ export default function App() {
             <Routes>
               <Route path="/" element={<LoginScreen />} />
               <Route path="/registration" element={<RegistrationScreen />} />
+              <Route path="/home" element={<HomeScreen />} />
+              <Route path="/transaction/:status" element={<Transaction />} />
             </Routes>
           </BrowserRouter>
         </Container>
@@ -25,7 +29,7 @@ export default function App() {
 const Main = styled.div`
   width: 100%;
   height: 100%;
-  min-width: 326px;
+  min-width: 334px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -33,9 +37,10 @@ const Main = styled.div`
 `;
 const Container = styled.div`
   width: 326px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
+
+
