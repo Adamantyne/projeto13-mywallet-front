@@ -24,7 +24,7 @@ export default function HomeScreen() {
       name: "",
       email: "",
       token: "",
-      url: "http://localhost:5000/",
+      url: "https://git.heroku.com/mywallet13.git/",
     });
     navigate("/");
   }
