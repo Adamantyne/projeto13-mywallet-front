@@ -24,7 +24,7 @@ export default function HomeScreen() {
       name: "",
       email: "",
       token: "",
-      url: "https://git.heroku.com/mywallet13.git/",
+      url: "https://mywalletdriven13.herokuapp.com/",
     });
     navigate("/");
   }
